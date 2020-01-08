@@ -5,12 +5,10 @@
  *  LICENSE file in the root directory of this source tree.
  */
 
-import { getOperationAST, parse, introspectionQuery } from 'graphql';
-
-export { introspectionQuery } from 'graphql';
+import { getOperationAST, parse, getIntrospectionQuery } from 'graphql';
 
 export const staticName = 'introspectionQuery';
-const operationDocument = getOperationAST(parse(introspectionQuery), null);
+const operationDocument = getOperationAST(parse(getIntrospectionQuery()), null);
 
 export const introspectionQueryName = operationDocument
   ? operationDocument.name?.value || staticName
