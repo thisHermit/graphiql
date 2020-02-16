@@ -8,7 +8,8 @@
 import { getOperationAST, parse, getIntrospectionQuery } from 'graphql';
 
 export const staticName = 'introspectionQuery';
-const operationDocument = getOperationAST(parse(getIntrospectionQuery()), null);
+export const introspectionQuery = getIntrospectionQuery();
+const operationDocument = getOperationAST(parse(introspectionQuery), null);
 
 export const introspectionQueryName = operationDocument
   ? operationDocument.name?.value || staticName
